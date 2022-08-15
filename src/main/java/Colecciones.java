@@ -7,11 +7,11 @@ public class Colecciones {
 
     public static void main(String[] args) {
 
-comprueboSiUnArrayContieneElementosDeOtroArrayList();
-retainALL();
+        comprueboSiUnArrayContieneElementosDeOtroArrayList();
+        retainALL();
     }
 
-    public static void comprueboSiUnArrayContieneElementosDeOtroArrayList(){
+    public static void comprueboSiUnArrayContieneElementosDeOtroArrayList() {
 
         System.out.println("------------ CONTAINS ALL -----------------");
 
@@ -20,7 +20,7 @@ retainALL();
         arrayList1.add("es");
         arrayList1.add("una");
         arrayList1.add("comprobación");
-        System.out.println("Arraylist1 "+ arrayList1);
+        System.out.println("Arraylist1 " + arrayList1);
 
         ArrayList<String> arrayList2 = new ArrayList<>();
         arrayList2.add("esta");
@@ -28,7 +28,7 @@ retainALL();
         arrayList2.add("es");
         arrayList2.add("una");
         arrayList2.add("comprobación");
-        System.out.println("Arraylist2 "+ arrayList2);
+        System.out.println("Arraylist2 " + arrayList2);
 
         /*
         arraylist.containsAll(Collection c);
@@ -43,7 +43,7 @@ retainALL();
         //¿Todos los elementos del arraylist1 estan contenidos en el 2?
         System.out.println("---> arrayList2.contains(arrayList1)");
         System.out.println("¿Todos los elementos del arraylist1 estan contenidos en el 2?");
-        if(arrayList2.containsAll(arrayList1))//sale true porque todos los elementos del arraylist1 estan en el dos
+        if (arrayList2.containsAll(arrayList1))//sale true porque todos los elementos del arraylist1 estan en el dos
             System.out.println("True: Arraylist1 contiene todos los elementos del 2");
         else
             System.out.println("False: Arraylist1 no contiene todos los eleementos del 2");
@@ -51,20 +51,19 @@ retainALL();
         //¿Todos los eleementos del arraylist 2 estan contenidos en el uno?
         System.out.println("---> arrayList1.contains(arrayList2)");
         System.out.println("//¿Todos los eleementos del arraylist 2 estan contenidos en el uno?");
-        if(arrayList1.containsAll(arrayList2)) //sale true
+        if (arrayList1.containsAll(arrayList2)) //sale true
             System.out.println("True: Arraylist 2 contiene todos los elementos de arrayList1");
         else//sale false -->> Cuidado! el arrayList2 tiene un elemento mas que el 1.
             System.out.println("False:El arraylist2 no contiene todos los elementos del arrayList1");
 
 
-
         //Con ARRAY:
-        if(arrayList1.containsAll(Arrays.asList(new String[]{"esto","es","una","comprobación"})))
+        if (arrayList1.containsAll(Arrays.asList(new String[]{"esto", "es", "una", "comprobación"})))
             System.out.println("True:Arraylist 1 contiene todos los elementos de un array identico.");
     }
 
     //Conservar en un array solo los elementos presentes en otro
-    public static void retainALL(){
+    public static void retainALL() {
 
         /*
         The syntax of the retainAll() method is:
