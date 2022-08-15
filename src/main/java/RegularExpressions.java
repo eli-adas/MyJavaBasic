@@ -3,14 +3,14 @@ import java.util.regex.Pattern;
 
 public class RegularExpressions {
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
 
         buscarExpresionRegular("","");
 
     }
 
 
-    public String buscarExpresionRegular(String expresionRegular, String cadena) {
+    public static String buscarExpresionRegular(String expresionRegular, String cadena) {
 
         String cadenaEncontrada = null;
         Pattern pattern = Pattern.compile(expresionRegular);
