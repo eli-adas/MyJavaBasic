@@ -7,8 +7,8 @@ public class Streams {
 
     public static void main(String[] args) {
 
-       // intStream(0,4);
-       // forEachArrayList();
+        intStream(0,4);
+        forEachArrayList();
         operadorTernario(true,"B");
 
     }
