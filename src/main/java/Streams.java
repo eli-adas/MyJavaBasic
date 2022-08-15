@@ -8,7 +8,8 @@ public class Streams {
     public static void main(String[] args) {
 
        // intStream(0,4);
-        forEachArrayList();
+       // forEachArrayList();
+        operadorTernario(true,"B");
 
     }
 
@@ -35,7 +36,30 @@ public class Streams {
             i[0]++;
         });
         System.out.println(arrayList1);
+    }
 
-        
+    public static void operadorTernario(boolean control, String letter){
+
+        int j;
+        j = (control ? 3 : 5);
+        System.out.println(j);
+
+        //Es igual a:
+        if(control)
+            j =3;
+        else
+            j= 5;
+
+
+        double a = ( letter.equals("MED001")? 17.23 : (letter.equals("MED002") ? 38.90 : 70.30));
+        System.out.println(a);
+
+        //Es lo mismo que:
+        if(letter.equals("MED001"))
+            a= 17.23;
+        else if(letter.equals("MED002"))
+            a = 38.90;
+        else
+            a= 70.30;
     }
 }
