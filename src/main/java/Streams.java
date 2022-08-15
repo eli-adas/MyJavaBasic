@@ -36,6 +36,5 @@ public class Streams {
         });
         System.out.println(arrayList1);
 
-
     }
 }
