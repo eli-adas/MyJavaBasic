@@ -26,7 +26,7 @@ public class Colecciones {
         arrayList2.add("esta");
         arrayList2.add("no");
         arrayList2.add("es");
-        arrayList2.add("una");
+        arrayList2.add("una3333");
         arrayList2.add("comprobación");
         System.out.println("Arraylist2 " + arrayList2);
 
