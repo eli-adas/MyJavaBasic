@@ -10,6 +10,7 @@ public class Streams {
         intStream(0,4);
         forEachArrayList();
         operadorTernario(true,"B");
+        //Eli coment
 
     }
 
