@@ -16,7 +16,7 @@ public class Colecciones {
         System.out.println("------------ CONTAINS ALL -----------------");
 
         ArrayList<String> arrayList1 = new ArrayList<>();
-        arrayList1.add("esta es esta con esta");
+        arrayList1.add("esta es esta con esta y con la otra");
         arrayList1.add("es");
         arrayList1.add("una");
         arrayList1.add("comprobación");
