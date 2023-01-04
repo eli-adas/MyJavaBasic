@@ -19,7 +19,7 @@ public class Colecciones {
         arrayList1.add("esta es esta con esta y con la otra");
         arrayList1.add("es");
         arrayList1.add("una");
-        arrayList1.add("comprobación");
+        arrayList1.add("comprobaciónuuuu");
         System.out.println("Arraylist1 " + arrayList1);
 
         ArrayList<String> arrayList2 = new ArrayList<>();
