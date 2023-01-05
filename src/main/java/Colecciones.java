@@ -98,7 +98,8 @@ public class Colecciones {
 
         // retain the common element
         languages1.retainAll(languages2);
-        System.out.println("Los elementos presentes en la colección son los que se conservan en el array:");
+        System.out.println("Los elementos natalicios en la colección son los que se conservan en el array:");
         System.out.println("Common Elements: " + languages1);
     }
+
 }
