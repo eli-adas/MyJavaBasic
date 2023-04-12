@@ -1,6 +1,9 @@
 
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.IntStream;
 
 public class Streams {
@@ -62,5 +65,25 @@ public class Streams {
             a = 38.90;
         else
             a= 70.30;
+    }
+
+    public static void romperBucleConStream(Map<Integer, String> mp){
+
+        AtomicBoolean control = new AtomicBoolean(true);
+        mp.entrySet().stream()
+                .sorted(Comparator.comparing(Map.Entry::getKey))
+                .takeWhile(entry -> control.get())
+                .forEach((entry) ->{
+                    System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+                   // frameHelper.clickInFrame(By.cssSelector(String.format(accionesBtn, entry.getKey() )), cuerpoFrame);
+                    //debugInfo("Revisando fila: " + (entry.getKey()-1) );
+                    //if(frameHelper.isPresentInFrame(suplementoMedioPagoBtn, cuerpoFrame)){
+                      //  frameHelper.clickInFrame(suplementoMedioPagoBtn, cuerpoFrame);
+                       // debugInfo("Se ha clicado en póliza: " + entry.getValue() );
+                        //setTestVar(NUM_POLIZA, entry.getValue() );
+                        control.set(false);
+                   // }
+                });
+
     }
 }
