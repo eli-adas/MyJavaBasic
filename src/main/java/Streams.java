@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
 public class Streams {
@@ -84,6 +85,16 @@ public class Streams {
                     control.set(false);
                     // }
                 });
+
+    }
+
+    public static void streamsListWebElements(){
+
+        AtomicInteger counter = new AtomicInteger(2);
+        webDriver.getElements(productoList).stream().forEach(element -> {
+            mp.put(counter.intValue(),element.getText().trim());
+            counter.getAndIncrement();
+        });
 
     }
 }
