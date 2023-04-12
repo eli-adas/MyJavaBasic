@@ -97,4 +97,17 @@ public class Streams {
         });
 
     }
+
+    public static void streamJoinString(){
+
+        @Test
+        public void whenCollectByJoining_thenGetJoinedString() {
+            String empNames = empList.stream()
+                    .map(Employee::getName)
+                    .collect(Collectors.joining(","))
+                    .toString();
+
+            assertEquals(empNames, "Jeff Bezos,Bill Gates,Mark Zuckerberg");
+        }
+    }
 }
