@@ -110,4 +110,16 @@ public class Streams {
             assertEquals(empNames, "Jeff Bezos,Bill Gates,Mark Zuckerberg");
         }
     }
+
+    public static void streamsGroupedInMapsBy(){
+        @Test
+        public void whenStreamGroupingBy_thenGetMap() {
+            Map<Character, List<Employee>> groupByAlphabet = empList.stream().collect(
+                    Collectors.groupingBy(e -> new Character(e.getName().charAt(0))));
+
+            assertEquals(groupByAlphabet.get('B').get(0).getName(), "Bill Gates");
+            assertEquals(groupByAlphabet.get('J').get(0).getName(), "Jeff Bezos");
+            assertEquals(groupByAlphabet.get('M').get(0).getName(), "Mark Zuckerberg");
+        }
+    }
 }
