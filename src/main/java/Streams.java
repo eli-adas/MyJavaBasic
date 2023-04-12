@@ -122,4 +122,10 @@ public class Streams {
             assertEquals(groupByAlphabet.get('M').get(0).getName(), "Mark Zuckerberg");
         }
     }
+
+    public static void streamNotNullList(){
+        Stream<Integer> result = number != null
+                ? Stream.of(number)
+                : Stream.empty();
+    }
 }
