@@ -5,7 +5,9 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Streams {
 
@@ -127,5 +129,14 @@ public class Streams {
         Stream<Integer> result = number != null
                 ? Stream.of(number)
                 : Stream.empty();
+    }
+
+    public createStringfromArray(){
+        Stream.of(data)
+                .collect(Collectors.joining(";"));
+    }
+
+    public createStringFromArrayList(){
+        String joined = attachmentNames.stream().map(Object::toString).collect(Collectors.joining(";"));
     }
 }
