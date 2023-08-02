@@ -1,8 +1,6 @@
 
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -12,6 +10,25 @@ import java.util.stream.Stream;
 public class Streams {
 
     public static void main(String[] args) {
+
+        String datoFrontal = "MARIAZAMBRANO2(08015)ARMILLA-Granada".toUpperCase(Locale.ROOT);
+        System.out.println(datoFrontal);
+        if(datoFrontal.contains("MARIAZAMBRANO")){
+            System.out.println("si");
+        }
+
+        if(datoFrontal.contains("armilla".toUpperCase(Locale.ROOT))){
+            System.out.println("seg si");
+        }
+
+        if(datoFrontal.contains("Granada".toUpperCase(Locale.ROOT))){
+            System.out.println("terc si");
+        }
+
+
+
+
+
 
         intStream(0,4);
         forEachArrayList();
@@ -88,8 +105,11 @@ public class Streams {
                     // }
                 });
 
-    }
+      //  List<String> documentNamesWebList = new ArrayList<String>(documentsAndRowsMap.values());
+        //List<String> filasShouldAppear = new ArrayList<String>(documentsAndRowsMap.keySet());
 
+    }
+/*
     public static void streamsListWebElements(){
 
         AtomicInteger counter = new AtomicInteger(2);
@@ -126,9 +146,7 @@ public class Streams {
     }
 
     public static void streamNotNullList(){
-        Stream<Integer> result = number != null
-                ? Stream.of(number)
-                : Stream.empty();
+        Stream<Integer> result = number != null ? Stream.of(number) : Stream.empty();
     }
 
     public createStringfromArray(){
@@ -139,4 +157,41 @@ public class Streams {
     public createStringFromArrayList(){
         String joined = attachmentNames.stream().map(Object::toString).collect(Collectors.joining(";"));
     }
+
+    public checkTwoList(){
+
+        List<String> differences = dataXLSDownloaded.stream()
+                .filter(element -> !dataCSV.contains(element))
+                .collect(Collectors.toList());
+
+        if (differences.size() == 1 && differences.get(0).equals("Pólizas OK"))
+
+
+
+    }*/
+
+    /*
+
+		List<WebElement> garantiasList = frameHelper.getElementsInFrame(listaGarantiasTxt, cuerpoFrame);
+		debugInfo(String.valueOf(garantiasList.size()));
+
+		List<WebElement> importesList = frameHelper.getElementsInFrame(listaImportesGarantiasTxt, cuerpoFrame);
+		debugInfo(String.valueOf(importesList.size()));
+
+		AtomicReference<String> nombreTodasGarantias= new AtomicReference<>("");
+		AtomicReference<String> importeTodasGarantias= new AtomicReference<>("");
+		AtomicInteger control = new AtomicInteger(0);
+		BinaryOperator add = (u, v) -> v + "/" + u;
+
+		webDriver.switchToFrame(cuerpoFrame);
+
+		garantiasList.stream().forEach(webElement -> {
+			String garantia = webElement.getText().trim();
+			String importe = importesList.get(control.intValue()).getText().replaceAll("€","").trim();
+			debugInfo("Garantía extraída de la lista del frontal: " + garantia + " ,con importe: " + importe);
+			nombreTodasGarantias.accumulateAndGet(garantia ,add);
+			importeTodasGarantias.accumulateAndGet(importe, add);
+			control.getAndIncrement();
+		});
+     */
 }
