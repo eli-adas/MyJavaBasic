@@ -2,10 +2,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class estudiandoStreams {
 
     public static void main(String[] args) {
+
+        ejerciciolistas();
+
+    }
+
+    public static void dia1() {
 
         //https://dev.to/educative/java-8-tutorial-master-stream-api-and-beyond-2734
 
@@ -17,16 +24,15 @@ public class estudiandoStreams {
         lista.add(100);
         lista.add(2);
 
-        for(int i= 0; i<lista.size(); i++){
-            if(lista.get(i) >10){
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i) > 10) {
                 System.out.println(lista.get(i));
             }
         }
 
         lista.stream()
-                .filter(cadaElemento -> cadaElemento >10)
+                .filter(cadaElemento -> cadaElemento > 10)
                 .forEach(System.out::println);
-
 
 
         ArrayList<String> nombres = new ArrayList<>();
@@ -37,7 +43,7 @@ public class estudiandoStreams {
         nombres.add("jessi");
 
         System.out.println("--->bucle for");
-        for(String nombre: nombres){
+        for (String nombre : nombres) {
             System.out.println(nombre.toUpperCase(Locale.ROOT));
         }
 
@@ -51,14 +57,14 @@ public class estudiandoStreams {
 
         nombres.stream().forEach(System.out::println);
 
-        for(int i=0; i<nombres.size();i++){
+        for (int i = 0; i < nombres.size(); i++) {
             String nombreMay = nombres.get(i).toUpperCase(Locale.ROOT);
             nombreMay = nombreMay + "/";
             nombreMay = nombreMay.replaceAll("A", "E");
             System.out.println("Nombre tras modificaciones" + nombreMay);
         }
 
-        nombres.stream().forEach(nombre ->{
+        nombres.stream().forEach(nombre -> {
             String nombreMay = nombre.toUpperCase(Locale.ROOT);
             nombreMay = nombreMay + "/";
             nombreMay = nombreMay.replaceAll("A", "E");
@@ -66,11 +72,14 @@ public class estudiandoStreams {
 
         });
 
-        String [] a = {"a", "b"};
+        String[] a = {"a", "b"};
         Arrays.stream(a);
 
         List<Integer> c = new ArrayList<>();
         c.stream();
+    }
+
+    public static void dia2() {
 
 /*
         Deberes:
@@ -79,5 +88,34 @@ public class estudiandoStreams {
         2. Hacer un arrayList de subgarantias, comprobar que hay una concreta y renombrar () -> otra
 
         3. Hacer un List de nombres de perros y gatos,   modificar los nombres que tengan mas de 3 letras y añadir un número.*/
+
+    }
+
+    public static void ejerciciolistas() {
+        /*
+        Ejercicio para hacer juntos. Hacer dos listas, y ver si una tiene diferencias con respecto a otra.
+        https://www.baeldung.com/java-lists-difference
+         */
+
+        ArrayList<String> lista1 = new ArrayList<String>(List.of("blanco", "azul", "gris"));
+        ArrayList<String> lista2 = new ArrayList<String>(List.of("blanco", "azul", "amarillo"));
+
+        if (lista1.equals(lista2)) {
+            System.out.println("las listas son iguales");
+        }else{
+            System.out.println("error");
+        }
+
+
+
+
+
+        List<String> differences = lista1.stream()
+                .filter(element -> !lista2.contains(element))
+                .collect(Collectors.toList());
+
+        System.out.println(differences);
     }
 }
+
+
