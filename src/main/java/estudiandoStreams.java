@@ -2,13 +2,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class estudiandoStreams {
 
     public static void main(String[] args) {
 
-        ejerciciolistas();
+   
 
     }
 
@@ -75,46 +76,58 @@ public class estudiandoStreams {
         String[] a = {"a", "b"};
         Arrays.stream(a);
 
+
         List<Integer> c = new ArrayList<>();
         c.stream();
     }
 
     public static void dia2() {
 
-/*
-        Deberes:
-        1 Hacer un array de matriculas y filtramos por elementos que comiencen por un número, organizar los números de mayor a menor.
 
-        2. Hacer un arrayList de subgarantias, comprobar que hay una concreta y renombrar () -> otra
 
-        3. Hacer un List de nombres de perros y gatos,   modificar los nombres que tengan mas de 3 letras y añadir un número.*/
+     //   1 Hacer un array de matriculas y filtramos por elementos que no comiencen por A, organizar los números de mayor a menor.
+
+
+            String[] arrayMatriculas = {"A1234ABC", "4345BCD", "3456CDE"};
+
+            Arrays.stream(arrayMatriculas).filter(matricula -> !matricula.startsWith("A")).sorted((a,b) -> b.compareTo(a)).forEach(System.out::println);
+
+      //  2. Hacer un arrayList de subgarantias, comprobar que hay una concreta y renombrar () -> otra
+
+      //  3. Hacer un List de nombres de perros y gatos,   modificar los nombres que tengan mas de 3 letras y añadir un número.*/
+            ArrayList<String> garantias = new ArrayList<>(Arrays.asList("Incendio", "Fenomenos atmosfericos", "Aguas", "Responsabilidad civil"));
+
+            AtomicInteger control = new AtomicInteger(0);
+            garantias.stream().forEach(palabra -> {
+                if(palabra.contains("Aguas")){
+                    garantias.set(control.get(), "Inundaciones");
+                }
+                control.getAndIncrement();
+            });
+            System.out.println(garantias);
+
+            for(int i=0; i<garantias.size(); i++){
+                if(garantias.get(i).contains("Aguas")){
+                    garantias.set(i,"Incendio");
+                }
+            }
+            System.out.println(garantias);
+
+
 
     }
 
-    public static void ejerciciolistas() {
+    public static void ejerciciolistasDia3() {
         /*
         Ejercicio para hacer juntos. Hacer dos listas, y ver si una tiene diferencias con respecto a otra.
         https://www.baeldung.com/java-lists-difference
          */
 
         ArrayList<String> lista1 = new ArrayList<String>(List.of("blanco", "azul", "gris"));
+
         ArrayList<String> lista2 = new ArrayList<String>(List.of("blanco", "azul", "amarillo"));
 
-        if (lista1.equals(lista2)) {
-            System.out.println("las listas son iguales");
-        }else{
-            System.out.println("error");
-        }
 
-
-
-
-
-        List<String> differences = lista1.stream()
-                .filter(element -> !lista2.contains(element))
-                .collect(Collectors.toList());
-
-        System.out.println(differences);
     }
 }
 
